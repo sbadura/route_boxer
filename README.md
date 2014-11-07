@@ -22,21 +22,21 @@ Or install it yourself as:
 ## Usage
 
 1. Get route with Google Directions API:
-
-   results = JSON.parse(open("http://maps.googleapis.com/maps/api/directions/json?alternative=true&destination=Warsaw&language=en&mode=driving&origin=Cracow&sensor=false").read)
-
+```ruby
+    results = JSON.parse(open("http://maps.googleapis.com/maps/api/directions/json?alternative=true&destination=Warsaw&language=en&mode=driving&origin=Cracow&sensor=false").read)
+```
 2. Decode response to LatLng points with 'polylines' gem:
-
-   points = Polylines::Decoder.decode_polyline(result["routes"][0]["overview_polyline"]["points"])
-
+```ruby    
+    points = Polylines::Decoder.decode_polyline(result["routes"][0]["overview_polyline"]["points"])
+```
 3. Parse points to RouteBoxer::LatLng objects:
-
+```ruby
    points = points.map { |p| RouteBoxer::LatLng.new(p[0], p[1])}
-
+```
 4. Use RouteBoxer to get 'boxed' route:
-
+```ruby
    RouteBoxer::Core.new.box(points, 10)
-
+```
 
 ## Contributing
 
