@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = RouteBoxer::VERSION
   spec.authors       = ["Sebastian Badura"]
   spec.email         = ["badura.sebastian@gmail.com"]
-  spec.summary       = %q{Ruby implementation fo RouteBoxer}
-  spec.description   = %q{Ruby implementation fo RouteBoxer}
+  spec.summary       = %q{Ruby implementation of RouteBoxer}
+  spec.description   = %q{Extend google maps route with extra boxes}
   spec.homepage      = "http://www.github.com/sbadura/route_boxer"
   spec.license       = "MIT"
 
@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", '~> 0'
 end
