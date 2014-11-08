@@ -22,6 +22,15 @@ module RouteBoxer
       return (@boxes_x.length <= @boxes_y.length ? @boxes_x : @boxes_y)
     end
 
+    def to_params
+      boxes = {}
+      (@boxes_x.length <= @boxes_y.length ? @boxes_x : @boxes_y).each_with_index do |box, i|
+        boxes[i.to_s] = { northeast_lat: box.north_east.lat, northeast_lng: box.north_east.lng, southwest_lat: box.south_west.lat, southwest_lng: box.south_west.lng }
+      end
+
+      boxes
+    end
+
   private
 
     def build_grid(vertices, range)
