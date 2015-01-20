@@ -36,7 +36,7 @@ module RouteBoxer
       lat == other.lat && lng == other.lng
     end
 
-    def rhumb_destination_point(brng, dist, r = 6378137)
+    def rhumb_destination_point(brng, dist, r = 6371)
       d = dist / r.to_f
 
       brng = deg2rad(brng)
