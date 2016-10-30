@@ -3,7 +3,7 @@ module RouteBoxer
     include RouteBoxer
     R = 6371
 
-    attr_accessor :grid, :lat_grid, :lng_grid, :boxes_x, :boxes_y
+    attr_accessor :grid, :lat_grid, :lng_grid, :boxes_x, :boxes_y, :axis
 
     def initialize
       @lat_grid = []
@@ -19,7 +19,13 @@ module RouteBoxer
       find_intersecting_cells(vertices)
       merge_intersecting_cells
 
-      return (@boxes_x.length <= @boxes_y.length ? @boxes_x : @boxes_y)
+      if @boxes_x.length <= @boxes_y.length
+        @axis = :x
+        @boxes_x
+      else
+        @axis = :y
+        @boxes_y
+      end
     end
 
     def to_params
