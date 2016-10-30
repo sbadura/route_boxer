@@ -26,6 +26,7 @@ module RouteBoxer
         @axis = :y
         @boxes_y
       end
+
     end
 
     def to_params
